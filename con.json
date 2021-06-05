@@ -16506,7 +16506,9 @@
                 { "content": "heartily, as for the L and not for men, ", "book": "Col", "chapter": 3, "verse": 23 },
                 { "content": "without which no one will see the L. ", "book": "Heb", "chapter": 12, "verse": 14 },
                 { "content": "L comes with ten thousands of his holy ", "book": "Jude", "chapter": 1, "verse": 14 },
-                { "content": "written, King of kings and L of lords. ", "book": "Rv", "chapter": 19, "verse": 16 },
+                { "content": "written, King of kings and L of lords. ", "book": "Rv", "chapter": 19, "verse": 16 }
+            ]
+        },
         { 
             "name": "LORD'S (Lord's; Hb. Yahweh)",
             "entrys": [
