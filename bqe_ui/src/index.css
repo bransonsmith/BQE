@@ -11,3 +11,39 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+button {
+  height: var(--scale-button-height);
+  width: fit-content;
+  padding: auto 10px;
+  border: var(--border-normal);
+}
+button:hover {
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: var(--color-title);
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--color-title);
+}
+
+/* variables to use in css anywhere in app, this makes modifying the whole app relatively easy, and keeps things uniform */
+:root {
+  --border-normal: 2px solid var(--color-border);
+  
+  --color-border: #000000;
+  --color-error: #ad2e2e;
+  --color-shadow: #00000077;
+  --color-text-normal: #000000;
+  --color-title: var(--color-text-normal);
+
+  --scale-app: 1; 
+  --scale-button-height: calc(var(--scale-app) * 30px);
+}

@@ -1,0 +1,10 @@
+.page-not-found-page {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.go-home {
+    margin: auto;
+}

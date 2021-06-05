@@ -1,23 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+// Load pages when they are needed
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const PageNotFoundPage = lazy(() => import('./pages/PageNotFoundPage/PageNotFoundPage'));
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Router>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Switch>
+            <Route exact path="/" 
+              component={HomePage}
+            />
+
+            {/* If no path above matched, show page not found. */}
+            <Route path="**" 
+              component={PageNotFoundPage}
+            />
+          </Switch>
+        </Suspense>
+      </Router>
     </div>
   );
 }
