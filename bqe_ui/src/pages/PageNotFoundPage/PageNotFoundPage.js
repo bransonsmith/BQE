@@ -5,7 +5,7 @@ import PageTitle from '../../components/PageTitle/PageTitle';
 export default class PageNotFoundPage extends React.Component  {
 
   goToHomePage() {
-    window.open("/");
+    window.location.href = "/";
   }
 
   render(){
