@@ -37,9 +37,11 @@ h2 {
 /* variables to use in css anywhere in app, this makes modifying the whole app relatively easy, and keeps things uniform */
 :root {
   --border-normal: 2px solid var(--color-border);
+  --border-hidden: 2px solid #00000000;
   
   --color-border: #000000;
   --color-error: #ad2e2e;
+  --color-item: #dddddd;
   --color-shadow: #00000077;
   --color-text-normal: #000000;
   --color-title: var(--color-text-normal);

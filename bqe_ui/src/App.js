@@ -1,6 +1,8 @@
 import './App.css';
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Copyright from './components/Copyright/Copyright';
+import BottomTab from './components/BottomTab/BottomTab';
 
 // Load pages when they are needed
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
@@ -24,6 +26,9 @@ function App() {
           </Switch>
         </Suspense>
       </Router>
+      <BottomTab label="Copyright">
+        <Copyright/>
+      </BottomTab>
     </div>
   );
 }

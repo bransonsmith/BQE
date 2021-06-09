@@ -1,0 +1,11 @@
+.esv-copyright {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    margin: auto;
+}
+
+.esv-copyright-text {
+    margin: auto;
+    color: var(--color-text-normal);
+}
