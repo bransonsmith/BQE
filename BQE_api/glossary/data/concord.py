@@ -1,4 +1,4 @@
-"words" = [
+words = [
         { 
             "name": "AARON",
             "entrys":[
