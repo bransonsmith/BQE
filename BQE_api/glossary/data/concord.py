@@ -1,7 +1,7 @@
 "words" = [
         { 
             "name": "AARON",
-            "entrys": [
+            "entrys":[
                 {"book": "Ex", "chapter": 4, "verse": 14 },
                 {"book": "Ex", "chapter": 32, "verse": 2 },
                 {"book": "Nm", "chapter": 17, "verse": 6 },
