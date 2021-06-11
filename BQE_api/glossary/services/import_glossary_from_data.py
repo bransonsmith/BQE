@@ -1,4 +1,9 @@
-
+from ..models import*
 from ..data.concord import words
+from ..data.con_abbrevs import *
 
-print(words[0]['name'])
+def import_comprehesive_concordance_words():
+    
+    
+    print(words[0]['name'])
+    return 
