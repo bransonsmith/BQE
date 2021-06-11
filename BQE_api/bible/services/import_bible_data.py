@@ -10,14 +10,14 @@ def import_data():
     return output
 
 def clear_current_bible_data():
-    Testament.objects.all().delete()
-    output = sub_job('Deleting Testaments')
-    Book.objects.all().delete()
-    output += sub_job('Deleting Books')
+    Verse.objects.all().delete()
+    output = sub_job('Deleting Verses')
     Chapter.objects.all().delete()
     output += sub_job('Deleting Chapters')
-    Verse.objects.all().delete()
-    output += sub_job('Deleting Verses')
+    Book.objects.all().delete()
+    output += sub_job('Deleting Books')
+    Testament.objects.all().delete()
+    output += sub_job('Deleting Testaments')
     return output
 
 def import_all_bible_data():
