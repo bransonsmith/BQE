@@ -1,6 +1,6 @@
 
-Abbreviations = { 
-    'OldT' : [ 
+
+Abbreviations  = {  'OldT' : [ 
                         {'book': 'Genesis ', 'abrv': 'Gn'},
                         {'book': 'Exodus ', 'abrv': 'Ex'},
                         {'book': 'Leviticus ', 'abrv': 'Lv'},
