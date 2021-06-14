@@ -1,18 +1,6 @@
-''' 
- 'abrv': 'Concordance',
- As an essentially literal translation, the ESV Bible is ideally suited for use with a concordance, as the ESV seeks to use the same English word, as far as possible and where appropriate to the meaning in each context, to translate important recurring words in the original languages. However, with a total of more than 757,000 words appearing in the ESV Bible, a shorter concordance such as this must be selective in the words it includes.
- 
- In choosing which words to list, the guiding principles were importance, familiarity, and breadth of coverage. Since the ESV is within the stream of English Bible translations that began with the King James Version of 1611, there was a special effort to include references to as many familiar Bible passages as possible. As to breadth of coverage, the goal has been to list key references for many different words rather than more lengthy listings for fewer words.
- 
- Passages appearing in more than one of the Synoptic Gospels usually have only one reference, most often to the book of Matthew.
- 
- 
- Readers will find the functionality of this concordance greatly increased if, after locating a Bible passage, the cross-reference system is then utilized for further research.
- Those desiring a more complete concordance for the ESV Bible should consult The Crossway Comprehensive Concordance, which has more than 300,000 verse listings for nearly 14,000 different words. Readers with internet access will find optimal word-search capability with the search engine at the ESV web site, esv.org.
- A B C D E F G H I J K L M N O P Q R S T U V W Y Z'''
 
 Abbreviations = { 
-              'OldT' : [ 
+    'OldT' : [ 
                         {'book': 'Genesis ', 'abrv': 'Gn'},
                         {'book': 'Exodus ', 'abrv': 'Ex'},
                         {'book': 'Leviticus ', 'abrv': 'Lv'},
@@ -53,7 +41,7 @@ Abbreviations = {
                         {'book': 'Zechariah ', 'abrv': 'Zec'},
                         {'book': 'Malachi ', 'abrv': 'Mal'}
                     ],
-            'NewT':[   
+        'NewT':[   
                             {'book': 'Matthew ', 'abrv': 'Mt'},
                             {'book': 'Mark ', 'abrv': 'Mk'},
                             {'book': 'Luke ', 'abrv': 'Lk'},
