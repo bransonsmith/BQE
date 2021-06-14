@@ -3,8 +3,17 @@ from django.http import HttpResponse
 from .services.import_bible_data import import_data
 from .models import *
 from .data.verse_counts import *
+import os
+
+def production_check():
+    try:
+        if os.environ['NOT_PRODUCTION'] != 'True':
+            raise Exception()
+    except:
+        raise Exception('You can\'t do that here. The environment variable: NOT_PRODUCTION must have a value of \'True\' for data scripts to be run.')
 
 def delete_bible_data(request):
+    production_check()
     num = 100
     if len(Chapter.objects.all()) > num:
         Chapter.objects.filter(id__in=list(Chapter.objects.values_list('pk', flat=True)[:num])).delete()
@@ -16,10 +25,12 @@ def delete_bible_data(request):
     return redirect('delete_testaments')
 
 def delete_testaments(request):
+    production_check()
     Testament.objects.all().delete()
     return HttpResponse('Deleted all Bible Data.')
 
 def seed_bible_data(request):
+    production_check()
     ot = Testament(order=1, name='Old Testament')
     ot.save()
     nt = Testament(order=2, name='New Testament')
@@ -28,6 +39,7 @@ def seed_bible_data(request):
     return redirect('seed_books')
 
 def seed_books(request):
+    production_check()
     num_uploaded = 0
     num_books = len(list(Book.objects.all()))
     book_num = num_books
