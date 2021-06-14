@@ -22,20 +22,19 @@ def delete_chapters(request):
     
     if len(Chapter.objects.all()) > 0:
         return redirect('delete_chapters')
-    return redirect('delete_testaments')
+    return redirect('delete_bible_data')
 
-
-def delete_testaments(request):
+def delete_bible_data(request):
     Testament.objects.all().delete()
     return HttpResponse('Deleted all Testaments.')
 
-def seed_testaments(request):
+def seed_bible_data(request):
     ot = Testament(order=1, name='Old Testament')
     ot.save()
     nt = Testament(order=2, name='New Testament')
     nt.save()
 
-    return HttpResponse('Seeded Testaments')
+    return redirect('seed_books')
 
 def seed_books(request):
     num_uploaded = 0
