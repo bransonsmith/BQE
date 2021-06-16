@@ -1,4 +1,4 @@
-from .concord import words
+from ..data.concordance import words
 from ..models import *
 
 
@@ -13,7 +13,7 @@ def clear_words_from_db():
     Entry().objects.all().delete()
     print('DELETING ENTRIES...')
 
-def import_concord_words():
+def import_concordance_words():
     for word_data in words:
         word = word_data['name']
         content = Word(name=word)

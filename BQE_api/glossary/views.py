@@ -12,3 +12,8 @@ def index(request):
     output += "</div></div>"
     return HttpResponse(output)
 
+def seed_glossary(request):
+    print('Importing Glossary')
+
+    return HttpResponse('seed glossary')
+
