@@ -1044,7 +1044,7 @@ words = [
                 {"book": "Ezra", "chapter": 3, "verse": 2 },
                 {"book": "Psalms", "chapter": 43, "verse": 4 },
                 {"book": "Matthew", "chapter": 23, "verse": 18 },
-                {"book": "Luke  ", "chapter": 11, "verse": 51 },
+                {"book": "Luke", "chapter": 11, "verse": 51 },
                 {"book": "Acts", "chapter": 17, "verse": 23 },
                 {"book": "Hebrews", "chapter": 9, "verse": 4 },
                 {"book": "Revelation", "chapter": 6, "verse": 9 },
