@@ -1,10 +1,10 @@
 __pycache__/
 *.py[cod]
 
-**/*.py[cod]
+node_modules/
 
-# dependencies
-**/node_modules/*
+.vs_code/
+
 /.pnp
 .pnp.js
 
