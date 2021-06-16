@@ -10,14 +10,27 @@ def import_data():
     return output
 
 def clear_current_bible_data():
-    Testament.objects.all().delete()
-    output = sub_job('Deleting Testaments')
-    Book.objects.all().delete()
-    output += sub_job('Deleting Books')
-    Chapter.objects.all().delete()
-    output += sub_job('Deleting Chapters')
-    Verse.objects.all().delete()
-    output += sub_job('Deleting Verses')
+    output = ''
+    try:
+        Verse.objects.all().delete()
+        output += sub_job('Deleting Verses')
+    except Exception as e:
+        output += f'ERROR: {e}'
+    try:
+        Chapter.objects.all().delete()
+        output += sub_job('Deleting Chapters')
+    except Exception as e:
+        output += f'ERROR: {e}'
+    try:
+        Book.objects.all().delete()
+        output += sub_job('Deleting Books')
+    except Exception as e:
+        output += f'ERROR: {e}'
+    try:
+        Testament.objects.all().delete()
+        output += sub_job('Deleting Testaments')
+    except Exception as e:
+        output += f'ERROR: {e}'
     return output
 
 def import_all_bible_data():
