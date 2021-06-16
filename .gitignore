@@ -2,3 +2,5 @@ __pycache__/
 *.py[cod]
 
 node_modules/
+
+.vs_code/
