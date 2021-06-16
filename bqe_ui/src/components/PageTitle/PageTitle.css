@@ -1,0 +1,10 @@
+.page-title {
+    position: fixed;
+    top: 4px;
+    width: 100%;
+    left: 0px;
+    display: flex;
+}
+.page-title-text {
+    margin: auto;
+}
