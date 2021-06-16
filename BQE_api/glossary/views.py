@@ -1,6 +1,5 @@
 from .models import *
 from django.shortcuts import redirect, render
-from .services import import_glossary_from_data
 from django.http import HttpResponse
 from .data import concordance
 
