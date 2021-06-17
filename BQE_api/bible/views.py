@@ -32,7 +32,7 @@ def delete(request):
         return redirect('delete')
     
     Testament.objects.all().delete()
-    return HttpResponse('Deleted all Bible Data.')
+    return HttpResponse(f'Deleted all Bible Data.<br>Go to <a href="../seed">bible/seed</a> to seed the bible data (this may take a few minutes).')
 
 def seed(request):
     ot = Testament(order=1, name='Old Testament')
@@ -40,6 +40,7 @@ def seed(request):
     nt = Testament(order=2, name='New Testament')
     nt.save()
 
+    print('Added Testaments.')
     return redirect('seed_books')
 
 def seed_books(request):
