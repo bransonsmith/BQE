@@ -1,10 +1,10 @@
-# list of books, padded with None to be 1-indexed
+# list of books
 # each book is a tuple with name of book, # of chapters, [number of verses in each chapter]
 # the list with the number of verses per chapter is padded to make it 1-indexed
 
 testaments = [ {'order': 1, 'name': 'Old Testament', 'range_min': 1, 'range_max': 49}, {'order': 2, 'name': 'New Testament', 'range_min': 50, 'range_max': 66}]
 
-passage_data = [None, 
+passage_data = [ 
                 ('Genesis', 50, [None, 31, 25, 24, 26, 32, 22, 24, 22, 29, 32, 32, 20, 18, 24, 21, 16, 27, 33, 38, 18, 34, 24, 20, 67, 34, 35, 
                     46, 22, 35, 43, 55, 32, 20, 31, 29, 43, 36, 30, 23, 23, 57, 38, 34, 34, 28, 34, 31, 22, 33, 26]), 
                 ('Exodus', 40, [None, 22, 25, 22, 31, 23, 30, 25, 32, 35, 29, 10, 51, 22, 31, 27, 36, 16, 27, 25, 26, 36, 31, 33, 18, 40, 37, 21, 
