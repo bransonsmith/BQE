@@ -14,7 +14,7 @@ def index(request):
     output += '<div class="out">'
     output += '<div class="title">{page_title} Import</div>'
     output += '<div class="content">'
-    output += 'To seed the {app_name} data 1) navigate to <a href="./{app_name}/delete">/{app_name}/delete_{app_name}</a> 2) navigate to <a href="./{app_name}/seed">/{app_name}/seed</a>'
+    output += f'To seed the {app_name} data 1) navigate to <a href="./delete">/{app_name}/delete</a> 2) navigate to <a href="./seed">/{app_name}/seed</a>'
     output += "</div></div>"
     return HttpResponse(output)
 
@@ -32,7 +32,7 @@ def delete(request):
         return redirect('delete')
     
     Testament.objects.all().delete()
-    return HttpResponse(f'Deleted all Bible Data.<br>Go to <a href="../seed">bible/seed</a> to seed the bible data (this may take a few minutes).')
+    return HttpResponse(f'Deleted all Bible Data.<br>Go to <a href="./seed">bible/seed</a> to seed the bible data (this may take a few minutes).')
 
 def seed(request):
     ot = Testament(order=1, name='Old Testament')
@@ -63,7 +63,7 @@ def seed_books(request):
         add_chapters(book_number, new_book, next_book_data[2])
         num_books_added_this_call += 1
 
-    print(f'Added {num_books_added_this_call} books. Last book = {next_book_data["name"]}')
+    print(f'Added {num_books_added_this_call} books. Last book = {next_book_data[0]}')
     if book_number < desired_number_of_books:
         return redirect('seed_books')
 
