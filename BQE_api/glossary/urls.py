@@ -11,7 +11,7 @@ router.register(r'word', WordViewSet)
 urlpatterns = [
 
     path('', include(router.urls)),
-    path('', index, name='index'),
+    path('data', index, name='index'),
     path('seed_glossary', seed_glossary, name='seed_glossary'),
     path('delete_glossary', delete_glossary, name='delete_glossary'),
     
