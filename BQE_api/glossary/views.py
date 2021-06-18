@@ -1,9 +1,27 @@
+from django.db.models import fields, query
 from django.shortcuts import redirect
 from django.http import HttpResponse
 from .models import *
 from .data import concordance
+from rest_framework import routers, serializers, viewsets
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from .serializers import *
+import random
 
 app_name = 'glossary'
+
+class WordViewSet(viewsets.ModelViewSet):
+    serializer_class = WordSerializer
+    queryset = Word.objects.all() 
+    
+    @action(detail=False)
+    def random(self, request):
+        random_word_id = random.choice(list(self.queryset)).id
+        random_word = Word.objects.filter(id=random_word_id).first()
+        serializer = self.get_serializer(random_word)
+        return Response(serializer.data)
+
 
 def index(request):
     output = ''
