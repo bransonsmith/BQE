@@ -1,0 +1,9 @@
+.word {
+    color: var(--color-text-normal);
+    display: flex;
+    margin: auto;
+}
+
+.word-label {
+    font-weight: bold;
+}
