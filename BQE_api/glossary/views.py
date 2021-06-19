@@ -15,13 +15,14 @@ class WordViewSet(viewsets.ModelViewSet):
     serializer_class = WordSerializer
     queryset = Word.objects.all() 
     
-    @action(detail=False, name='Random', methods=['GET'])
+    @action(detail=False, methods=['GET'], name='Random')
     def random(self, request):
         random_word_id = random.choice(list(self.queryset)).id
         random_word = Word.objects.filter(id=random_word_id).first()
         serializer = self.get_serializer(random_word)
         return Response(serializer.data)
-    @action(detail=False, methods=['POST'], name='Answer') #TAKE OUT GET ONCE YOU GET THE POST DATA
+        
+    @action(detail=False, methods=['POST'], name='Answer') 
     def answer(self,  request):
         question_id = request.data['question_id']
         book = request.data['book']
