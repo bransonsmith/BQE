@@ -12,3 +12,11 @@ class Entry(models.Model):
     verse = models.IntegerField(default=0)
     def __str__(self):
         return f'{self.word} {self.book} {self.chapter}: {self.verse}'
+
+class Answer(models.Model):
+    question_id = models.IntegerField(default=0)
+    book = models.CharField(max_length=77)
+    chapter = models.IntegerField(default=0)
+    verse = models.IntegerField(default=0)
+    def __str__(self):
+        return f'{self.word} {self.book} {self.chapter}: {self.verse}'
