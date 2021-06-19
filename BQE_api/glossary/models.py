@@ -19,4 +19,4 @@ class Answer(models.Model):
     chapter = models.IntegerField(default=0)
     verse = models.IntegerField(default=0)
     def __str__(self):
-        return f'{self.word} {self.book} {self.chapter}: {self.verse}'
+        return f'{self.question_id} {self.book} {self.chapter}: {self.verse}'
