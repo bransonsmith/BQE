@@ -168,5 +168,5 @@ REST_FRAMEWORK = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000/"
+    os.environ['BQE_UI_REQUEST_URL']
 ]

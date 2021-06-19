@@ -11,7 +11,8 @@ export default class Word extends React.Component {
     }
   
     componentDidMount() {
-      axios.get(`https://bqe-api-staging.herokuapp.com/glossary/word/random/`)
+      const api_url = process.env.REACT_APP_BQE_API_URL;
+      axios.get(`${api_url}/glossary/word/random/`)
         .then(res => {
           const word = res.data;
           this.setState({ word });
