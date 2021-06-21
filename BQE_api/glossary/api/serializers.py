@@ -15,5 +15,5 @@ class EntrySerializer(serializers.ModelSerializer):
 class AnswerSerializer(serializers.ModelSerializer):
     class Meta: 
         model = Answer
-        fields = ['id', 'word', 'book', 'chapter', 'verse']
+        fields = ['id','question_id', 'book', 'chapter', 'verse']
 

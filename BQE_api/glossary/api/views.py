@@ -19,17 +19,8 @@ class WordViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(random_word)
         return Response(serializer.data)
         
-    @action(detail=False, methods=['GET', 'POST'], name='Answer') 
-    def answer(self,  request):
-        
-        book = request.data['book']
-        chapter= request.data['chapter']
-        verse= request.data['verse']
 
-        answer = { 'book': book, 'chapter': chapter, 'verse' : verse}
-        return Response(answer)
 
 class AnswerViewSet(viewsets.ModelViewSet):
     serializer_class = AnswerSerializer
     queryset = Answer.objects.all()
-
