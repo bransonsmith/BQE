@@ -1,6 +1,6 @@
 from django.db.models import fields
 from rest_framework import serializers
-from .models import *
+from ..models import *
 
 class WordSerializer(serializers.ModelSerializer):
     class Meta:
