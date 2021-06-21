@@ -1,3 +1,4 @@
+from django.db.models import fields
 from rest_framework import serializers
 from .models import *
 
@@ -11,3 +12,11 @@ class EntrySerializer(serializers.ModelSerializer):
         model = Entry
         fields = ['id', 'word', 'book', 'chapter', 'verse']
 
+class AnswerSerializer(serializers.ModelSerializer):
+    class Meta: 
+        model = Answer
+        fields = ['id', 'word', 'book', 'chapter', 'verse']
+
+    
+    def create(self, validated_data):
+        return Answer.objects.create(**validated_data)
