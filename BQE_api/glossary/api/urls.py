@@ -11,6 +11,7 @@ app_name = 'glossary'
 
 router = routers.DefaultRouter()
 router.register(r'word', WordViewSet)
+router.register(r'answer', AnswerViewSet)
 
 
 

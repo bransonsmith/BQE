@@ -17,6 +17,3 @@ class AnswerSerializer(serializers.ModelSerializer):
         model = Answer
         fields = ['id', 'word', 'book', 'chapter', 'verse']
 
-    
-    def create(self, validated_data):
-        return Answer.objects.create(**validated_data)
