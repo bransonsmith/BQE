@@ -8,15 +8,10 @@ from .views import *
 
 app_name = 'glossary'
 
-
 router = routers.DefaultRouter()
 router.register(r'word', WordViewSet)
 router.register(r'answer', AnswerViewSet)
 
-
-
 urlpatterns = [
-    path('', include(router.urls)),
-    
-
+    path('', include(router.urls)),    
 ]

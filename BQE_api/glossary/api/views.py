@@ -6,8 +6,6 @@ from rest_framework.response import Response
 from .serializers import *
 from ..models import *
 import random
-
-
 class WordViewSet(viewsets.ModelViewSet):
     serializer_class = WordSerializer
     queryset = Word.objects.all() 
@@ -18,9 +16,6 @@ class WordViewSet(viewsets.ModelViewSet):
         random_word = Word.objects.filter(id=random_word_id).first()
         serializer = self.get_serializer(random_word)
         return Response(serializer.data)
-        
-
-
 class AnswerViewSet(viewsets.ModelViewSet):
     serializer_class = AnswerSerializer
     queryset = Answer.objects.all()
