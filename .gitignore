@@ -13,6 +13,7 @@ node_modules/
 
 # production
 /build
+settings.py
 
 # misc
 .DS_Store
@@ -24,3 +25,4 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
