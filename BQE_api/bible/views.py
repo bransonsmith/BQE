@@ -2,10 +2,14 @@ from django.shortcuts import redirect
 from django.http import HttpResponse
 from .models import *
 from .data.verse_counts import *
+from django.http.response import HttpResponseForbidden
 
 app_name = 'bible';
 
 def index(request):
+    if not request.user.is_superuser:
+        return HttpResponseForbidden()
+
     output = ''
     output = '<style>body: { width: 100%; height: fit_content; display: flex; flex-direction: column;} .out { box-shadow: 2px 2px 7px #565658; width: 700px; max-width: calc(100% - 40px); padding: 20px; margin: 50px auto 0px; min-height: 100px; background-color: #fafafb; } .title { font-size: 20px; width: fit-content; margin: auto auto 15px auto; } .content { font-size: 14px; } .job-start { font-size: 14px; font-weight: bold; background-color: #defcfc; } .job-end { font-size: 14px; font-weight: bold; background-color: #daf8f8; margin-bottom: 40px; } .sub-job { padding-left: 20px; }</style>'
     output += '<div class="out">'
@@ -16,6 +20,9 @@ def index(request):
     return HttpResponse(output)
 
 def delete_bible(request):
+    if not request.user.is_superuser:
+        return HttpResponseForbidden()
+
     num_chapters_to_delete_in_each_run = 100
     number_of_chapters_at_start = len(Chapter.objects.all())
     print(f'Deleting {max(num_chapters_to_delete_in_each_run, number_of_chapters_at_start)} chapters.')
@@ -32,6 +39,9 @@ def delete_bible(request):
     return HttpResponse(f'Deleted all {app_name} data.<br>Go to <a href="./seed_bible">{app_name}/seed_bible</a> to seed the {app_name} data (this may take a few minutes).')
 
 def seed_bible(request):
+    if not request.user.is_superuser:
+        return HttpResponseForbidden()
+
     ot = Testament(order=1, name='Old Testament')
     ot.save()
     nt = Testament(order=2, name='New Testament')
@@ -41,6 +51,9 @@ def seed_bible(request):
     return redirect('seed_books')
 
 def seed_books(request):
+    if not request.user.is_superuser:
+        return HttpResponseForbidden()
+
     desired_number_of_books = len(passage_data)
     num_books_to_add_in_each_call = 6
     book_count = len(list(Book.objects.all()))
