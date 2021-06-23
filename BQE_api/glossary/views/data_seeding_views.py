@@ -1,38 +1,17 @@
-from django.db.models import fields, query
+from django.http.response import HttpResponseForbidden
 from django.shortcuts import redirect
 from django.http import HttpResponse
-from .models import *
-from .data import concordance
-from rest_framework import routers, serializers, viewsets
-from rest_framework.decorators import action
-from rest_framework.response import Response
-from .serializers import *
-import random
+from ..models import *
+from ..data import concordance
+from django.contrib.auth.decorators import login_required
 
 app_name = 'glossary'
 
-class WordViewSet(viewsets.ModelViewSet):
-    serializer_class = WordSerializer
-    queryset = Word.objects.all() 
-    
-    @action(detail=False, methods=['GET'], name='Random')
-    def random(self, request):
-        random_word_id = random.choice(list(self.queryset)).id
-        random_word = Word.objects.filter(id=random_word_id).first()
-        serializer = self.get_serializer(random_word)
-        return Response(serializer.data)
-        
-    @action(detail=False, methods=['POST'], name='Answer') 
-    def answer(self,  request):
-        question_id = request.data['question_id']
-        book = request.data['book']
-        chapter= request.data['chapter']
-        verse= request.data['verse']
-
-        answer = {'question_id': question_id, 'book': book, 'chapter': chapter, 'verse' : verse}
-        return Response(answer)
-
+@login_required
 def index(request):
+    if not request.user.is_superuser:
+        return HttpResponseForbidden()
+
     output = ''
     output = '<style>body: { width: 100%; height: fit_content; display: flex; flex-direction: column;} .out { box-shadow: 2px 2px 7px #565658; width: 700px; max-width: calc(100% - 40px); padding: 20px; margin: 50px auto 0px; min-height: 100px; background-color: #fafafb; } .title { font-size: 20px; width: fit-content; margin: auto auto 15px auto; } .content { font-size: 14px; } .job-start { font-size: 14px; font-weight: bold; background-color: #defcfc; } .job-end { font-size: 14px; font-weight: bold; background-color: #daf8f8; margin-bottom: 40px; } .sub-job { padding-left: 20px; }</style>'
     output += '<div class="out">'
@@ -43,13 +22,18 @@ def index(request):
     return HttpResponse(output)
 
 def delete_glossary(request):
+    if not request.user.is_superuser:
+        return HttpResponseForbidden()
+
     print('Deleting Words')
     Word.objects.all().delete()
     print('Deleted Words')
-
     return HttpResponse(f'Deleted all {app_name} data.<br>Go to <a href="./seed_{app_name}">{app_name}/seed_{app_name}</a> to seed the {app_name} data (this may take a few minutes).')
 
 def seed_glossary(request):
+    if not request.user.is_superuser:
+        return HttpResponseForbidden()
+    
     desired_number_of_words = len(concordance.words)
     num_words_to_add_in_each_call = 1000
     word_count = len(list(Word.objects.all()))
